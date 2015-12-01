@@ -1,0 +1,71 @@
+{
+  "name": "react-action-palette",
+  "description": "Action Palette for buttons",
+  "author": "Yash Ranadive",
+  "version": "0.0.1",
+  "main": "./src/index.js",
+  "license": "MIT",
+  "bugs": "https://github.com/evidanary/react-action-palette/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evidanary/react-action-palette.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "palette",
+    "buttons",
+    "react-component",
+    "component"
+  ],
+  "files": [
+    "./dist/npm"
+  ],
+  "directories": {
+    "lib": "./src",
+    "example": "./example"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+     ]
+  },
+  "scripts": {
+    "build": "browserify ./src/index.js -t babelify -t literalify -x react -s ActionPalette -d",
+    "dist:dev": "npm --loglevel=silent run build > dist/react-action-palette.dev.js",
+    "dist:min": "npm --loglevel=silent run build -- -t [envify --NODE_ENV production] | uglifyjs -cmvb beautify=false,ascii_only=true - > dist/react-action-palette.min.js",
+    "test": "karma start",
+    "test:dev": "karma start --no-single-run --browsers Chrome",
+    "jsx": "jsx ./src ./dist/npm -x jsx -x js"
+  },
+  "devDependencies": {
+    "react": "0.13.3",
+    "babelify": "^6.1.0",
+    "brfs": "^1.4.0",
+    "browserify": "^9.0.3",
+    "browserify-css": "^0.6.1",
+    "browserify-shim": "^3.8.6",
+    "envify": "^3.4.0",
+    "insert-css": "^0.2.0",
+    "karma": "^0.12.31",
+    "karma-browserify": "^4.1.2",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-cli": "^0.0.4",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-opera-launcher": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-sinon-chai": "^0.3.0",
+    "literalify": "^0.4.0",
+    "mocha": "^2.2.4",
+    "react-tools": "^0.13.1",
+    "uglify-js": "^2.4.20",
+    "watchify": "^2.4.0"
+  },
+  "literalify": {
+    "react": "window.React || require('react')"
+  }
+}
