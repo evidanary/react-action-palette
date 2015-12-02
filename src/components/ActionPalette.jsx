@@ -4,17 +4,11 @@ import React from 'react';
 
 /**
  * This component renders a list of buttons/text
+ * TODO: Need to accept props which allow for easier styling
  */
 class ActionPalette extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visible: true
-    }
-  }
-
-  doNothing() {
-    this.setState({something: true});
   }
 
   render() {
@@ -25,8 +19,5 @@ class ActionPalette extends React.Component {
     );
   }
 }
-
-ActionPalette.propTypes = {
-};
 
 export default ActionPalette;

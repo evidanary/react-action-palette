@@ -9,29 +9,31 @@ class ActionPaletteItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: true
     }
   }
 
-  doNothing() {
-    this.setState({something: true});
-  }
 
   render() {
-    if(this.state.visible === true) {
+    if(this.props.visible === true) {
       return (
-        <div>
-        </div>
+        <span onClick={this.props.onClick}>
+          <i className={this.props.className} />
+        </span>
       );
+    } else {
+      return false;
     }
   }
 }
 
 ActionPaletteItem.propTypes = {
-  name: React.PropTypes.string,
   className: React.PropTypes.string,
-  onClick: React.PropTypes.func.isRequired,
-  visible: React.PropTypes.func
+  onClick: React.PropTypes.func,
+  visible: React.PropTypes.bool
+};
+
+ActionPaletteItem.defaultProps = {
+  visible: true
 };
 
 export default ActionPaletteItem;
